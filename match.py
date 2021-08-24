@@ -41,7 +41,7 @@ def openf():
 def calculate(target):
     global anss
     global ansc
-    #stores as (score, sciname, comname, level, notice)
+    #stores as (sciname, comname, level, notice)
     for elem in ddi:
         anss.append((fuzz.UWRatio(elem['sci'], target, full_process = False), elem['sci'], elem['comm'], elem['level'], elem['notice']))
         ansc.append((fuzz.partial_token_sort_ratio(elem['comm'], target, force_ascii = False, full_process = False), elem['sci'], elem['comm'], elem['level'], elem['notice']))
