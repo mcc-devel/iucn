@@ -1,4 +1,5 @@
 import json
+import fcheck
 
 ddi = []
 lci = []
@@ -9,7 +10,8 @@ cri = []
 ewi = []
 exi = []
 
-def openf():
+def openf(aserr):
+    fcheck.doFileExistanceCheck(aserr)
     global ddi
     global lci
     global nti
@@ -35,8 +37,8 @@ def openf():
     with open('ex.json', 'r') as f:
         exi = json.load(f)
 
-def calculate(target):
-    openf()
+def calculate(target, aserr):
+    openf(aserr)
     #stores as (sciname, comname, level, notice)
     ans = []
     flag = False

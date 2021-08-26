@@ -4,9 +4,17 @@ import iucn
 import guimatch
 import time
 
+warnAsError = False
+
+def warnAsErr():
+    global warnAsError
+    if messagebox.askyesno(title = 'Warnings as Errors?', message = 'Do you want to treat all warning as errors?'):
+        warnAsError = True
+        print('All warnings shall be treated as errors now')
+
 def selectcallback(res):
     res = schlst.get(ACTIVE)
-    ans = guimatch.calculate(schinput.get())
+    ans = guimatch.calculate(schinput.get(), warnAsError)
     for elem in ans:
         if elem[1] == res:
             messagebox.showinfo(title = 'Details about %s' % elem[1], message = '''Scientific name: %s
@@ -32,7 +40,7 @@ def refcallback():
 
 def schcallback():
     schlst.delete(0, END)
-    ans = guimatch.calculate(schinput.get())
+    ans = guimatch.calculate(schinput.get(), warnAsError)
     disp = []
     for elem in ans:
         disp.append(elem[1])
@@ -44,6 +52,7 @@ if __name__ == '__main__':
     frame = Tk()
     frame.title('IUCN animal searcher')
     frame.geometry('700x500')
+    warnAsErr()
     reflab = Label(frame, text = 'Refresh Database (this will take up to 5-6 minutes)')
     refbtn = Button(frame, text = 'Refresh', command = refcallback)
     reflab.pack()
