@@ -1,4 +1,3 @@
-from fuzzywuzzy import fuzz
 import json
 
 ddi = []
