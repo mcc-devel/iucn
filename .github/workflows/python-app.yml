@@ -36,5 +36,5 @@ jobs:
     - name: Push jsons
       run: |
         git add dd.json lc.json nt.json vu.json en.json cr.json ew.json ex.json
-        git commit dd.json lc.json nt.json vu.json en.json cr.json ew.json ex.json -m "Updare jsons"
+        git commit dd.json lc.json nt.json vu.json en.json cr.json ew.json ex.json -m "Update jsons"
         git push
