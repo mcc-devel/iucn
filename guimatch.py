@@ -61,168 +61,168 @@ def calculate(target, aserr):
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
             elif flag == True and word.lower() != target.lower():
-                for word in wordlst:
-                    try:
-                        if(pos[word.lower()] > 0):
-                            found[pos[word.lower()]] += 1
-                    except KeyError:
-                        pass
-                tmp = True
-                for i in range(1, len(tgetlst)+1):
-                    if found[i] == 0:
-                        tmp = False
-                        break
+                try:
+                    if(pos[word.lower()] > 0):
+                        found[pos[word.lower()]] += 1
+                except KeyError:
+                    pass
+        if flag == True:
+            tmp = True
+            for i in range(1, len(tgetlst)+1):
+                if found[i] == 0:
+                    tmp = False
+                    break
                 if tmp == True:
                     ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
-                for i in range(0, len(tgetlst)+1):
-                    found[i] = 0
+            for i in range(0, len(tgetlst)+1):
+                found[i] = 0
     for elem in lci:
         wordlst = elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
             elif flag == True and word.lower() != target.lower():
-                for word in wordlst:
-                    try:
-                        if(pos[word.lower()] > 0):
-                            found[pos[word.lower()]] += 1
-                    except KeyError:
-                        pass
-                tmp = True
-                for i in range(1, len(tgetlst)+1):
-                    if found[i] == 0:
-                        tmp = False
-                        break
+                try:
+                    if(pos[word.lower()] > 0):
+                        found[pos[word.lower()]] += 1
+                except KeyError:
+                    pass
+        if flag == True:
+            tmp = True
+            for i in range(1, len(tgetlst)+1):
+                if found[i] == 0:
+                    tmp = False
+                    break
                 if tmp == True:
                     ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
-                for i in range(0, len(tgetlst)+1):
-                    found[i] = 0
+            for i in range(0, len(tgetlst)+1):
+                found[i] = 0
     for elem in nti:
         wordlst = elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
             elif flag == True and word.lower() != target.lower():
-                for word in wordlst:
-                    try:
-                        if(pos[word.lower()] > 0):
-                            found[pos[word.lower()]] += 1
-                    except KeyError:
-                        pass
-                tmp = True
-                for i in range(1, len(tgetlst)+1):
-                    if found[i] == 0:
-                        tmp = False
-                        break
+                try:
+                    if(pos[word.lower()] > 0):
+                        found[pos[word.lower()]] += 1
+                except KeyError:
+                    pass
+        if flag == True:
+            tmp = True
+            for i in range(1, len(tgetlst)+1):
+                if found[i] == 0:
+                    tmp = False
+                    break
                 if tmp == True:
                     ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
-                for i in range(0, len(tgetlst)+1):
-                    found[i] = 0
+            for i in range(0, len(tgetlst)+1):
+                found[i] = 0
     for elem in vui:
         wordlst = elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
             elif flag == True and word.lower() != target.lower():
-                for word in wordlst:
-                    try:
-                        if(pos[word.lower()] > 0):
-                            found[pos[word.lower()]] += 1
-                    except KeyError:
-                        pass
-                tmp = True
-                for i in range(1, len(tgetlst)+1):
-                    if found[i] == 0:
-                        tmp = False
-                        break
+                try:
+                    if(pos[word.lower()] > 0):
+                        found[pos[word.lower()]] += 1
+                except KeyError:
+                    pass
+        if flag == True:
+            tmp = True
+            for i in range(1, len(tgetlst)+1):
+                if found[i] == 0:
+                    tmp = False
+                    break
                 if tmp == True:
                     ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
-                for i in range(0, len(tgetlst)+1):
-                    found[i] = 0
+            for i in range(0, len(tgetlst)+1):
+                found[i] = 0
     for elem in eni:
         wordlst = elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
             elif flag == True and word.lower() != target.lower():
-                for word in wordlst:
-                    try:
-                        if(pos[word.lower()] > 0):
-                            found[pos[word.lower()]] += 1
-                    except KeyError:
-                        pass
-                tmp = True
-                for i in range(1, len(tgetlst)+1):
-                    if found[i] == 0:
-                        tmp = False
-                        break
+                try:
+                    if(pos[word.lower()] > 0):
+                        found[pos[word.lower()]] += 1
+                except KeyError:
+                    pass
+        if flag == True:
+            tmp = True
+            for i in range(1, len(tgetlst)+1):
+                if found[i] == 0:
+                    tmp = False
+                    break
                 if tmp == True:
                     ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
-                for i in range(0, len(tgetlst)+1):
-                    found[i] = 0
+            for i in range(0, len(tgetlst)+1):
+                found[i] = 0
     for elem in cri:
         wordlst = elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
             elif flag == True and word.lower() != target.lower():
-                for word in wordlst:
-                    try:
-                        if(pos[word.lower()] > 0):
-                            found[pos[word.lower()]] += 1
-                    except KeyError:
-                        pass
-                tmp = True
-                for i in range(1, len(tgetlst)+1):
-                    if found[i] == 0:
-                        tmp = False
-                        break
+                try:
+                    if(pos[word.lower()] > 0):
+                        found[pos[word.lower()]] += 1
+                except KeyError:
+                    pass
+        if flag == True:
+            tmp = True
+            for i in range(1, len(tgetlst)+1):
+                if found[i] == 0:
+                    tmp = False
+                    break
                 if tmp == True:
                     ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
-                for i in range(0, len(tgetlst)+1):
-                    found[i] = 0
+            for i in range(0, len(tgetlst)+1):
+                found[i] = 0
     for elem in ewi:
         wordlst = elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
             elif flag == True and word.lower() != target.lower():
-                for word in wordlst:
-                    try:
-                        if(pos[word.lower()] > 0):
-                            found[pos[word.lower()]] += 1
-                    except KeyError:
-                        pass
-                tmp = True
-                for i in range(1, len(tgetlst)+1):
-                    if found[i] == 0:
-                        tmp = False
-                        break
+                try:
+                    if(pos[word.lower()] > 0):
+                        found[pos[word.lower()]] += 1
+                except KeyError:
+                    pass
+        if flag == True:
+            tmp = True
+            for i in range(1, len(tgetlst)+1):
+                if found[i] == 0:
+                    tmp = False
+                    break
                 if tmp == True:
                     ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
-                for i in range(0, len(tgetlst)+1):
-                    found[i] = 0
+            for i in range(0, len(tgetlst)+1):
+                found[i] = 0
     for elem in exi:
         wordlst = elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
             elif flag == True and word.lower() != target.lower():
-                for word in wordlst:
-                    try:
-                        if(pos[word.lower()] > 0):
-                            found[pos[word.lower()]] += 1
-                    except KeyError:
-                        pass
-                tmp = True
-                for i in range(1, len(tgetlst)+1):
-                    if found[i] == 0:
-                        tmp = False
-                        break
+                try:
+                    if(pos[word.lower()] > 0):
+                        found[pos[word.lower()]] += 1
+                except KeyError:
+                    pass
+        if flag == True:
+            tmp = True
+            for i in range(1, len(tgetlst)+1):
+                if found[i] == 0:
+                    tmp = False
+                    break
                 if tmp == True:
                     ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
-                for i in range(0, len(tgetlst)+1):
-                    found[i] = 0
+            for i in range(0, len(tgetlst)+1):
+                found[i] = 0
     ans.sort(key = lambda elem:elem[1], reverse = True)
     actans = []
     for elem in ans:
