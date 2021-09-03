@@ -37,7 +37,7 @@ def openf(aserr):
     with open('ex.json', 'r') as f:
         exi = json.load(f)
 
-def calculate(target, aserr):
+def calculate(target, aserr, assci):
     openf(aserr)
     #stores as (sciname, comname, level, notice)
     ans = []
@@ -47,6 +47,7 @@ def calculate(target, aserr):
     tgetlst = []
     found = []
     pos = {}
+    wordlst = []
     if flag == True:
         tgetlst = target.split(' ')
         for i in range(0, len(tgetlst)):
@@ -56,7 +57,10 @@ def calculate(target, aserr):
         for i in range(0, len(tgetlst)):
             pos[tgetlst[i]] = i+1
     for elem in ddi:
-        wordlst = elem['comm'].split(' ')
+        if assci == False:
+            wordlst = elem['comm'].split(' ')
+        else:
+            wordlst = elem['sci'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
@@ -77,7 +81,10 @@ def calculate(target, aserr):
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in lci:
-        wordlst = elem['comm'].split(' ')
+        if assci == False:
+            wordlst = elem['comm'].split(' ')
+        else:
+            wordlst = elem['sci'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
@@ -98,7 +105,10 @@ def calculate(target, aserr):
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in nti:
-        wordlst = elem['comm'].split(' ')
+        if assci == False:
+            wordlst = elem['comm'].split(' ')
+        else:
+            wordlst = elem['sci'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
@@ -119,7 +129,10 @@ def calculate(target, aserr):
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in vui:
-        wordlst = elem['comm'].split(' ')
+        if assci == False:
+            wordlst = elem['comm'].split(' ')
+        else:
+            wordlst = elem['sci'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
@@ -140,7 +153,10 @@ def calculate(target, aserr):
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in eni:
-        wordlst = elem['comm'].split(' ')
+        if assci == False:
+            wordlst = elem['comm'].split(' ')
+        else:
+            wordlst = elem['sci'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
@@ -161,7 +177,10 @@ def calculate(target, aserr):
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in cri:
-        wordlst = elem['comm'].split(' ')
+        if assci == False:
+            wordlst = elem['comm'].split(' ')
+        else:
+            wordlst = elem['sci'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
@@ -182,7 +201,10 @@ def calculate(target, aserr):
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in ewi:
-        wordlst = elem['comm'].split(' ')
+        if assci == False:
+            wordlst = elem['comm'].split(' ')
+        else:
+            wordlst = elem['sci'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
@@ -203,7 +225,10 @@ def calculate(target, aserr):
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in exi:
-        wordlst = elem['comm'].split(' ')
+        if assci == False:
+            wordlst = elem['comm'].split(' ')
+        else:
+            wordlst = elem['sci'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
@@ -223,7 +248,7 @@ def calculate(target, aserr):
                     ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
-    ans.sort(key = lambda elem:elem[1], reverse = True)
+    ans.sort(key = lambda elem:elem[1])
     actans = []
     for elem in ans:
         if elem not in actans:

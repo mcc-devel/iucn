@@ -59,44 +59,44 @@ def getjson():
 
     for elem in ddii:
         try:
-            ddi.append({'sci': elem['fields']['scientificName'][0], 'comm': elem['fields']['commonName'][0], 'level': 'Data Deficient', 'notice': '''We don't have enough data to determine the species' status.'''})
+            ddi.append({'sci': elem['fields']['scientificName'][0], 'comm': elem['fields']['commonName'][0], 'level': 'DD/Data Deficient', 'notice': '''We don't have enough data to determine the species' status.'''})
         except KeyError:
-            ddi.append({'sci': elem['fields']['scientificName'][0], 'comm': 'None', 'level': 'Data Deficient', 'notice': '''We don't have enough data to determine the species' status.'''})
+            ddi.append({'sci': elem['fields']['scientificName'][0], 'comm': 'None', 'level': 'DD/Data Deficient', 'notice': '''We don't have enough data to determine the species' status.'''})
     for elem in lcii:
         try:
-            lci.append({'sci': elem['fields']['scientificName'][0], 'comm': elem['fields']['commonName'][0], 'level': 'Least Concern', 'notice': '''This species is perfectly fine.'''})
+            lci.append({'sci': elem['fields']['scientificName'][0], 'comm': elem['fields']['commonName'][0], 'level': 'LC/Least Concern', 'notice': '''This species is perfectly fine.'''})
         except KeyError:
-            lci.append({'sci': elem['fields']['scientificName'][0], 'comm': 'None', 'level': 'Least Concern', 'notice': '''This species is perfectly fine.'''})
+            lci.append({'sci': elem['fields']['scientificName'][0], 'comm': 'None', 'level': 'LC/Least Concern', 'notice': '''This species is perfectly fine.'''})
     for elem in ntii:
         try:
-            nti.append({'sci': elem['fields']['scientificName'][0], 'comm': elem['fields']['commonName'][0], 'level': 'Near Threatened', 'notice': '''This species might be threatened in the future, protect it!'''})
+            nti.append({'sci': elem['fields']['scientificName'][0], 'comm': elem['fields']['commonName'][0], 'level': 'NT/Near Threatened', 'notice': '''This species might be threatened in the future, protect it!'''})
         except KeyError:
-            nti.append({'sci': elem['fields']['scientificName'][0], 'comm': 'None', 'level': 'Near Threatened', 'notice': '''This species might be threatened in the future, protect it!'''})
+            nti.append({'sci': elem['fields']['scientificName'][0], 'comm': 'None', 'level': 'NT/Near Threatened', 'notice': '''This species might be threatened in the future, protect it!'''})
     for elem in vuii:
         try:
-            vui.append({'sci': elem['fields']['scientificName'][0], 'comm': elem['fields']['commonName'][0], 'level': 'Vulnerable', 'notice': '''This species is at risk of extinction, protect it!'''})
+            vui.append({'sci': elem['fields']['scientificName'][0], 'comm': elem['fields']['commonName'][0], 'level': 'VU/Vulnerable', 'notice': '''This species is at risk of extinction, protect it!'''})
         except KeyError:
-            vui.append({'sci': elem['fields']['scientificName'][0], 'comm': 'None', 'level': 'Vulnerable', 'notice': '''This species is at risk of extinction, protect it!'''})
+            vui.append({'sci': elem['fields']['scientificName'][0], 'comm': 'None', 'level': 'VU/Vulnerable', 'notice': '''This species is at risk of extinction, protect it!'''})
     for elem in enii:
         try:
-            eni.append({'sci': elem['fields']['scientificName'][0], 'comm': elem['fields']['commonName'][0], 'level': 'Endangered', 'notice': '''This species is at high risk of extinction, protect it!'''})
+            eni.append({'sci': elem['fields']['scientificName'][0], 'comm': elem['fields']['commonName'][0], 'level': 'EN/Endangered', 'notice': '''This species is at high risk of extinction, protect it!'''})
         except KeyError:
-            eni.append({'sci': elem['fields']['scientificName'][0], 'comm': 'None', 'level': 'Endangered', 'notice': '''This species is at high risk of extinction, protect it!'''})
+            eni.append({'sci': elem['fields']['scientificName'][0], 'comm': 'None', 'level': 'EN/Endangered', 'notice': '''This species is at high risk of extinction, protect it!'''})
     for elem in crii:
         try:
-            cri.append({'sci': elem['fields']['scientificName'][0], 'comm': elem['fields']['commonName'][0], 'level': 'Critically Endangered', 'notice': '''This species is at very high risk of extinction, protect it!'''})
+            cri.append({'sci': elem['fields']['scientificName'][0], 'comm': elem['fields']['commonName'][0], 'level': 'CR/Critically Endangered', 'notice': '''This species is at very high risk of extinction, protect it!'''})
         except KeyError:
-            cri.append({'sci': elem['fields']['scientificName'][0], 'comm': 'None', 'level': 'Critically Endangered', 'notice': '''This species is at very high risk of extinction, protect it!'''})
+            cri.append({'sci': elem['fields']['scientificName'][0], 'comm': 'None', 'level': 'CR/Critically Endangered', 'notice': '''This species is at very high risk of extinction, protect it!'''})
     for elem in ewii:
         try:
-            ewi.append({'sci': elem['fields']['scientificName'][0], 'comm': elem['fields']['commonName'][0], 'level': 'Extinct In The Wild', 'notice': '''This species is already extinct in the wild.'''})
+            ewi.append({'sci': elem['fields']['scientificName'][0], 'comm': elem['fields']['commonName'][0], 'level': 'EW/Extinct In The Wild', 'notice': '''This species is already extinct in the wild.'''})
         except KeyError:
-            ewi.append({'sci': elem['fields']['scientificName'][0], 'comm': 'None', 'level': 'Extinct In The Wild', 'notice': '''This species is already extinct in the wild.'''})
+            ewi.append({'sci': elem['fields']['scientificName'][0], 'comm': 'None', 'level': 'EW/Extinct In The Wild', 'notice': '''This species is already extinct in the wild.'''})
     for elem in exii:
         try:
-            exi.append({'sci': elem['fields']['scientificName'][0], 'comm': elem['fields']['commonName'][0], 'level': 'Extinct', 'notice': '''Sorry, this species is already extinct.'''})
+            exi.append({'sci': elem['fields']['scientificName'][0], 'comm': elem['fields']['commonName'][0], 'level': 'EX/Extinct', 'notice': '''Sorry, this species is already extinct.'''})
         except KeyError:
-            exi.append({'sci': elem['fields']['scientificName'][0], 'comm': 'None', 'level': 'Extinct', 'notice': '''Sorry, this species is already extinct.'''})
+            exi.append({'sci': elem['fields']['scientificName'][0], 'comm': 'None', 'level': 'EX/Extinct', 'notice': '''Sorry, this species is already extinct.'''})
     with open('dd.json', 'w', encoding='utf-8') as f:
         json.dump(ddi, f)
     with open('lc.json', 'w', encoding='utf-8') as f:

@@ -1,3 +1,4 @@
+import exceptions
 from tkinter import *
 from tkinter import messagebox
 import iucn
@@ -14,7 +15,7 @@ def warnAsErr():
 
 def selectcallback(res):
     res = schlst.get(ACTIVE)
-    ans = guimatch.calculate(schinput.get(), warnAsError)
+    ans = guimatch.calculate(schinput.get(), warnAsError, isChecked.get())
     for elem in ans:
         if elem[1] == res:
             messagebox.showinfo(title = 'Details about %s' % elem[1], message = '''Scientific name: %s
@@ -40,7 +41,7 @@ def refcallback():
 
 def schcallback():
     schlst.delete(0, END)
-    ans = guimatch.calculate(schinput.get(), warnAsError)
+    ans = guimatch.calculate(schinput.get(), warnAsError, isChecked.get())
     disp = []
     for elem in ans:
         disp.append(elem[1])
@@ -53,16 +54,22 @@ if __name__ == '__main__':
     frame.title('IUCN animal searcher')
     frame.geometry('700x500')
     warnAsErr()
+    global isChecked
+    isChecked = BooleanVar()
     reflab = Label(frame, text = 'Refresh Database (this will take up to 5-6 minutes)')
     refbtn = Button(frame, text = 'Refresh', command = refcallback)
     reflab.pack()
     refbtn.pack()
     schlab = Label(frame, text = 'Search the animal you want')
     schinput = Entry(frame)
+    schsci = Checkbutton(frame, text = 'Use scientific names', variable = isChecked, offvalue = False, onvalue = True)
     schbtn = Button(frame, text = 'Search', command = schcallback)
     schlst = Listbox(frame, selectmode = SINGLE, width = 75, height = 25)
     schlst.bind('<Double-Button-1>', selectcallback)
     schlab.pack()
     schinput.pack()
+    schsci.pack()
     schbtn.pack()
     frame.mainloop()
+else:
+    raise exceptions.notMainError()
