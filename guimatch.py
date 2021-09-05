@@ -264,5 +264,5 @@ def calculate(target, aserr, iscomm, issci):
             for i in range(0, len(actans)):
                 if actans[i] == (elem[0], 'None', elem[2], elem[3]):
                     actans[i] = elem
-                    i = len(actans)
+                    break
     return actans
