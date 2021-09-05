@@ -37,7 +37,7 @@ def openf(aserr):
     with open('ex.json', 'r') as f:
         exi = json.load(f)
 
-def calculate(target, aserr, assci):
+def calculate(target, aserr, iscomm, issci):
     openf(aserr)
     #stores as (sciname, comname, level, notice)
     ans = []
@@ -47,7 +47,6 @@ def calculate(target, aserr, assci):
     tgetlst = []
     found = []
     pos = {}
-    wordlst = []
     if flag == True:
         tgetlst = target.split(' ')
         for i in range(0, len(tgetlst)):
@@ -57,10 +56,11 @@ def calculate(target, aserr, assci):
         for i in range(0, len(tgetlst)):
             pos[tgetlst[i]] = i+1
     for elem in ddi:
-        if assci == False:
-            wordlst = elem['comm'].split(' ')
-        else:
-            wordlst = elem['sci'].split(' ')
+        wordlst = []
+        if issci == True:
+            wordlst = wordlst + elem['sci'].split(' ')
+        if iscomm == True:
+            wordlst = wordlst + elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
@@ -81,10 +81,11 @@ def calculate(target, aserr, assci):
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in lci:
-        if assci == False:
-            wordlst = elem['comm'].split(' ')
-        else:
-            wordlst = elem['sci'].split(' ')
+        wordlst = []
+        if issci == True:
+            wordlst = wordlst + elem['sci'].split(' ')
+        if iscomm == True:
+            wordlst = wordlst + elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
@@ -105,10 +106,11 @@ def calculate(target, aserr, assci):
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in nti:
-        if assci == False:
-            wordlst = elem['comm'].split(' ')
-        else:
-            wordlst = elem['sci'].split(' ')
+        wordlst = []
+        if issci == True:
+            wordlst = wordlst + elem['sci'].split(' ')
+        if iscomm == True:
+            wordlst = wordlst + elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
@@ -129,10 +131,11 @@ def calculate(target, aserr, assci):
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in vui:
-        if assci == False:
-            wordlst = elem['comm'].split(' ')
-        else:
-            wordlst = elem['sci'].split(' ')
+        wordlst = []
+        if issci == True:
+            wordlst = wordlst + elem['sci'].split(' ')
+        if iscomm == True:
+            wordlst = wordlst + elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
@@ -153,10 +156,11 @@ def calculate(target, aserr, assci):
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in eni:
-        if assci == False:
-            wordlst = elem['comm'].split(' ')
-        else:
-            wordlst = elem['sci'].split(' ')
+        wordlst = []
+        if issci == True:
+            wordlst = wordlst + elem['sci'].split(' ')
+        if iscomm == True:
+            wordlst = wordlst + elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
@@ -177,10 +181,11 @@ def calculate(target, aserr, assci):
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in cri:
-        if assci == False:
-            wordlst = elem['comm'].split(' ')
-        else:
-            wordlst = elem['sci'].split(' ')
+        wordlst = []
+        if issci == True:
+            wordlst = wordlst + elem['sci'].split(' ')
+        if iscomm == True:
+            wordlst = wordlst + elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
@@ -201,10 +206,11 @@ def calculate(target, aserr, assci):
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in ewi:
-        if assci == False:
-            wordlst = elem['comm'].split(' ')
-        else:
-            wordlst = elem['sci'].split(' ')
+        wordlst = []
+        if issci == True:
+            wordlst = wordlst + elem['sci'].split(' ')
+        if iscomm == True:
+            wordlst = wordlst + elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
@@ -225,10 +231,11 @@ def calculate(target, aserr, assci):
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in exi:
-        if assci == False:
-            wordlst = elem['comm'].split(' ')
-        else:
-            wordlst = elem['sci'].split(' ')
+        wordlst = []
+        if issci == True:
+            wordlst = wordlst + elem['sci'].split(' ')
+        if iscomm == True:
+            wordlst = wordlst + elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
                 ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
@@ -251,6 +258,11 @@ def calculate(target, aserr, assci):
     ans.sort(key = lambda elem:elem[1])
     actans = []
     for elem in ans:
-        if elem not in actans:
+        if elem not in actans and (elem[0], 'None', elem[2], elem[3]) not in actans:
             actans.append(elem)
+        elif (elem[0], 'None', elem[2], elem[3]) in actans and elem not in actans:
+            for i in range(0, len(actans)):
+                if actans[i] == (elem[0], 'None', elem[2], elem[3]):
+                    actans[i] = elem
+                    i = len(actans)
     return actans
