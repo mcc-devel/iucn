@@ -76,8 +76,8 @@ def calculate(target, aserr, assci):
                 if found[i] == 0:
                     tmp = False
                     break
-                if tmp == True:
-                    ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+            if tmp == True:
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in lci:
@@ -100,8 +100,8 @@ def calculate(target, aserr, assci):
                 if found[i] == 0:
                     tmp = False
                     break
-                if tmp == True:
-                    ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+            if tmp == True:
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in nti:
@@ -124,8 +124,8 @@ def calculate(target, aserr, assci):
                 if found[i] == 0:
                     tmp = False
                     break
-                if tmp == True:
-                    ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+            if tmp == True:
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in vui:
@@ -148,8 +148,8 @@ def calculate(target, aserr, assci):
                 if found[i] == 0:
                     tmp = False
                     break
-                if tmp == True:
-                    ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+            if tmp == True:
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in eni:
@@ -172,8 +172,8 @@ def calculate(target, aserr, assci):
                 if found[i] == 0:
                     tmp = False
                     break
-                if tmp == True:
-                    ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+            if tmp == True:
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in cri:
@@ -196,8 +196,8 @@ def calculate(target, aserr, assci):
                 if found[i] == 0:
                     tmp = False
                     break
-                if tmp == True:
-                    ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+            if tmp == True:
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in ewi:
@@ -220,8 +220,8 @@ def calculate(target, aserr, assci):
                 if found[i] == 0:
                     tmp = False
                     break
-                if tmp == True:
-                    ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+            if tmp == True:
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in exi:
@@ -244,8 +244,8 @@ def calculate(target, aserr, assci):
                 if found[i] == 0:
                     tmp = False
                     break
-                if tmp == True:
-                    ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+            if tmp == True:
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     ans.sort(key = lambda elem:elem[1])
