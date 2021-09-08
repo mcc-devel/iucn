@@ -1,11 +1,13 @@
 import exceptions
 from tkinter import *
 from tkinter import messagebox
+from tkinter.ttk import Combobox
 import iucn
 import guimatch
 import time
 
 warnAsError = False
+lvls = ['Everything', 'DD/Data Deficient', 'LC/Least Concern', 'NT/Near Threatened', 'VU/Vulnerable', 'EN/Endangered', 'CR/Critically Endangered', 'EW/Extinct In The Wild', 'EX/Extinct']
 
 def warnAsErr():
     global warnAsError
@@ -16,7 +18,7 @@ def warnAsErr():
 def selectcallback(res):
     res = schlst.get(ACTIVE)
     res = res.replace(' (Scientific name, no common name avaliable)', '')
-    ans = guimatch.calculate(schinput.get(), warnAsError, isComm.get(), isSci.get())
+    ans = guimatch.calculate(schinput.get(), warnAsError, isComm.get(), isSci.get(), opt.get())
     for elem in ans:
         if elem[1] == res:
             messagebox.showinfo(title = 'Details about %s' % elem[1], message = '''Scientific name: %s
@@ -58,9 +60,22 @@ def refcallback():
 
 def schcallback():
     schlst.delete(0, END)
-    ans = guimatch.calculate(schinput.get(), warnAsError, isComm.get(), isSci.get())
+    ans = guimatch.calculate(schinput.get(), warnAsError, isComm.get(), isSci.get(), opt.get())
     disp = []
     for elem in ans:
+        if elem[1] != 'None':
+            disp.append(elem[1])
+        else:
+            disp.append(elem[0] + ' (Scientific name, no common name avaliable)')
+    for elem in disp:
+        schlst.insert(END, elem)
+    schlst.pack()
+
+def optcallback(res):
+    schlst.delete(0, END)
+    res = guimatch.calculate(schinput.get(), warnAsError, isComm.get(), isSci.get(), opt.get())
+    disp = []
+    for elem in res:
         if elem[1] != 'None':
             disp.append(elem[1])
         else:
@@ -76,8 +91,10 @@ if __name__ == '__main__':
     warnAsErr()
     global isSci
     global isComm
+    global opt
     isSci = BooleanVar()
     isComm = BooleanVar()
+    opt = StringVar()
     reflab = Label(frame, text = 'Refresh Database (this will take up to 5-6 minutes)')
     refbtn = Button(frame, text = 'Refresh', command = refcallback)
     reflab.pack()
@@ -87,6 +104,9 @@ if __name__ == '__main__':
     options = Frame(frame)
     schcomm = Checkbutton(options, text = 'Use common names', variable = isComm, offvalue = False, onvalue = True)
     schsci = Checkbutton(options, text = 'Use scientific names', variable = isSci, offvalue = False, onvalue = True)
+    schfil = Combobox(frame, values = lvls, state = 'readonly', textvariable = opt)
+    schfil.bind('<<ComboboxSelected>>', optcallback)
+    schfil.current(0)
     schbtn = Button(frame, text = 'Search', command = schcallback)
     schlst = Listbox(frame, selectmode = SINGLE, width = 75, height = 25)
     schlst.bind('<Double-Button-1>', selectcallback)
@@ -95,6 +115,7 @@ if __name__ == '__main__':
     options.pack()
     schcomm.pack(side = LEFT)
     schsci.pack(side = RIGHT)
+    schfil.pack()
     schbtn.pack()
     frame.mainloop()
 else:

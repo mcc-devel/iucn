@@ -37,7 +37,7 @@ def openf(aserr):
     with open('ex.json', 'r') as f:
         exi = json.load(f)
 
-def calculate(target, aserr, iscomm, issci):
+def calculate(target, aserr, iscomm, issci, opt):
     openf(aserr)
     #stores as (sciname, comname, level, notice)
     ans = []
@@ -258,6 +258,8 @@ def calculate(target, aserr, iscomm, issci):
     ans.sort(key = lambda elem:elem[1])
     actans = []
     for elem in ans:
+        if opt != 'Everything' and elem[2] != opt:
+            continue
         if elem not in actans and (elem[0], 'None', elem[2], elem[3]) not in actans:
             actans.append(elem)
         elif (elem[0], 'None', elem[2], elem[3]) in actans and elem not in actans:
