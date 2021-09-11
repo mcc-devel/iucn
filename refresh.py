@@ -1,4 +1,5 @@
 import json
+import iucn
 from requests import get
 
 def fastref():
@@ -11,3 +12,6 @@ def fastref():
         rs = get('https://raw.fastgit.org/mcc-devel/iucn/main/%s.json' % nm, headers = headers).json()
         with open('%s.json' % nm, 'w', encoding = 'utf-8') as f:
             json.dump(rs, f)
+
+def slowref():
+    iucn.getjson()

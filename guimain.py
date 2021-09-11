@@ -2,7 +2,6 @@ import exceptions
 from tkinter import *
 from tkinter import messagebox
 from tkinter.ttk import Combobox
-import iucn
 import guimatch
 import time
 import refresh
@@ -56,7 +55,7 @@ A notice for you: %s''' % (elem[0], elem[1], elem[2], elem[3]))
     time.sleep(5)
 
 def refcallback():
-    iucn.getjson()
+    refresh.slowref()
     messagebox.showinfo(title = 'Completed!', message = 'Completed refreshing!')
 
 def reffcallback():
