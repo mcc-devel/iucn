@@ -48,14 +48,14 @@ def getjson():
     cri = []
     ewi = []
     exi = []
-    ddii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % ddcc, data=dd, headers=headers).json()['hits']['hits']
-    lcii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % lccc, data=lc, headers=headers).json()['hits']['hits']
-    ntii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % ntcc, data=nt, headers=headers).json()['hits']['hits']
-    vuii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % vucc, data=vu, headers=headers).json()['hits']['hits']
-    enii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % encc, data=en, headers=headers).json()['hits']['hits']
-    crii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % crcc, data=cr, headers=headers).json()['hits']['hits']
-    ewii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % ewcc, data=ew, headers=headers).json()['hits']['hits']
-    exii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % excc, data=ex, headers=headers).json()['hits']['hits']
+    ddii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % ddcc, data=dd, headers=headers).json()['hits']
+    lcii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % lccc, data=lc, headers=headers).json()['hits']
+    ntii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % ntcc, data=nt, headers=headers).json()['hits']
+    vuii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % vucc, data=vu, headers=headers).json()['hits']
+    enii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % encc, data=en, headers=headers).json()['hits']
+    crii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % crcc, data=cr, headers=headers).json()['hits']
+    ewii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % ewcc, data=ew, headers=headers).json()['hits']
+    exii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % excc, data=ex, headers=headers).json()['hits']
 
     for elem in ddii:
         try:
