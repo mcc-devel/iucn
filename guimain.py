@@ -5,6 +5,7 @@ from tkinter.ttk import Combobox
 import iucn
 import guimatch
 import time
+import refresh
 
 warnAsError = False
 lvls = ['Everything', 'DD/Data Deficient', 'LC/Least Concern', 'NT/Near Threatened', 'VU/Vulnerable', 'EN/Endangered', 'CR/Critically Endangered', 'EW/Extinct In The Wild', 'EX/Extinct']
@@ -58,6 +59,10 @@ def refcallback():
     iucn.getjson()
     messagebox.showinfo(title = 'Completed!', message = 'Completed refreshing!')
 
+def reffcallback():
+    refresh.fastref()
+    messagebox.showinfo(title = 'Completed!', message = 'Completed fast refreshing!')
+
 def schcallback():
     schlst.delete(0, END)
     ans = guimatch.calculate(schinput.get(), warnAsError, isComm.get(), isSci.get(), opt.get())
@@ -87,7 +92,7 @@ def optcallback(res):
 if __name__ == '__main__':
     frame = Tk()
     frame.title('IUCN animal searcher')
-    frame.geometry('700x500')
+    frame.geometry('700x600')
     warnAsErr()
     global isSci
     global isComm
@@ -97,8 +102,12 @@ if __name__ == '__main__':
     opt = StringVar()
     reflab = Label(frame, text = 'Refresh Database (this will take up to 5-6 minutes)')
     refbtn = Button(frame, text = 'Refresh', command = refcallback)
+    refflab = Label(frame, text = 'Fast refresh from GitHub')
+    reffbtn = Button(frame, text = 'Fast Refresh', command = reffcallback)
     reflab.pack()
     refbtn.pack()
+    refflab.pack()
+    reffbtn.pack()
     schlab = Label(frame, text = 'Search the animal you want')
     schinput = Entry(frame)
     options = Frame(frame)
@@ -108,7 +117,7 @@ if __name__ == '__main__':
     schfil.bind('<<ComboboxSelected>>', optcallback)
     schfil.current(0)
     schbtn = Button(frame, text = 'Search', command = schcallback)
-    schlst = Listbox(frame, selectmode = SINGLE, width = 75, height = 25)
+    schlst = Listbox(frame, selectmode = SINGLE, width = 75, height = 20)
     schlst.bind('<Double-Button-1>', selectcallback)
     schlab.pack()
     schinput.pack()
