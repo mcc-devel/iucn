@@ -35,6 +35,9 @@ jobs:
     - name: Generate jsons
       run: |
         python auto-getjson.py
+    - name: Clean files
+      run: |
+        rm -rf __pycache__
     - name: Push jsons
       run: |
         git add dd.json lc.json nt.json vu.json en.json cr.json ew.json ex.json
