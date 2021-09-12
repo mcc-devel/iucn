@@ -32,13 +32,29 @@ def getjson():
     # method = requests.post(link{1, 2}, data = {...}, headers = headers);
     # Info count
     ddcc = requests.post(link1, data=ddc, headers=headers).json()['hits']['total']['value']
+    if ddcc > 70000:
+        ddcc = 70000
     lccc = requests.post(link1, data=lcc, headers=headers).json()['hits']['total']['value']
+    if lccc > 70000:
+        lccc = 70000
     ntcc = requests.post(link1, data=ntc, headers=headers).json()['hits']['total']['value']
+    if ntcc > 70000:
+        ntcc = 70000
     vucc = requests.post(link1, data=vuc, headers=headers).json()['hits']['total']['value']
+    if vucc > 70000:
+        vucc = 70000
     encc = requests.post(link1, data=enc, headers=headers).json()['hits']['total']['value']
+    if encc > 70000:
+        encc = 70000
     crcc = requests.post(link1, data=crc, headers=headers).json()['hits']['total']['value']
+    if crcc > 70000:
+        crcc = 70000
     ewcc = requests.post(link1, data=ewc, headers=headers).json()['hits']['total']['value']
+    if ewcc > 70000:
+        ewcc = 70000
     excc = requests.post(link1, data=exc, headers=headers).json()['hits']['total']['value']
+    if excc > 70000:
+        excc = 70000
     # Real info
     ddi = []
     lci = []
@@ -48,14 +64,14 @@ def getjson():
     cri = []
     ewi = []
     exi = []
-    ddii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % ddcc, data=dd, headers=headers).json()['hits']
-    lcii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % lccc, data=lc, headers=headers).json()['hits']
-    ntii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % ntcc, data=nt, headers=headers).json()['hits']
-    vuii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % vucc, data=vu, headers=headers).json()['hits']
-    enii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % encc, data=en, headers=headers).json()['hits']
-    crii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % crcc, data=cr, headers=headers).json()['hits']
-    ewii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % ewcc, data=ew, headers=headers).json()['hits']
-    exii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % excc, data=ex, headers=headers).json()['hits']
+    ddii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % ddcc, data=dd, headers=headers).json()['hits']['hits']
+    lcii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % lccc, data=lc, headers=headers).json()['hits']['hits']
+    ntii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % ntcc, data=nt, headers=headers).json()['hits']['hits']
+    vuii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % vucc, data=vu, headers=headers).json()['hits']['hits']
+    enii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % encc, data=en, headers=headers).json()['hits']['hits']
+    crii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % crcc, data=cr, headers=headers).json()['hits']['hits']
+    ewii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % ewcc, data=ew, headers=headers).json()['hits']['hits']
+    exii = requests.post(r'https://www.iucnredlist.org/dosearch/assessments/_search?size=%s&_source=false&from=0&track_total_hits=true' % excc, data=ex, headers=headers).json()['hits']['hits']
 
     for elem in ddii:
         try:
