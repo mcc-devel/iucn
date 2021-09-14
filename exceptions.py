@@ -15,3 +15,10 @@ class notMainError(RuntimeError):
         pass
     def __str__(self):
         return 'Program is not ran as __main__, please re-run it!'
+
+class deprecatedMethodWarning(PendingDeprecationWarning):
+    def __init__(self, oldn, newn):
+        self.oldn = oldn
+        self.newn = newn
+    def __str__(self):
+        return 'Method %s will be deprecated soon, use %s instead.' % (self.oldn, self.newn)
