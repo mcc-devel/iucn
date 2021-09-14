@@ -27,13 +27,23 @@ Common name: %s
 
 Danger level: %s
 
-A notice for you: %s''' % (elem[0], elem[1], elem[2], elem[3]))
+Kingdom: %s
+Phylum: %s
+Class: %s
+Order: %s
+Family: %s
+Genus: %s''' % (elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7], elem[8]))
             if messagebox.askyesno(title = 'Copy?', message = 'Copy to clipboard?'):
                 frame.clipboard_clear()
                 frame.clipboard_append('''Scientific name: %s
 Common name: %s
 Danger level: %s
-A notice for you: %s''' % (elem[0], elem[1], elem[2], elem[3]))
+Kingdom: %s
+Phylum: %s
+Class: %s
+Order: %s
+Family: %s
+Genus: %s''' % (elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7], elem[8]))
             frame.update()
             return
         elif elem[1] == 'None' and elem[0] == res:
@@ -43,13 +53,23 @@ Common name: %s
 
 Danger level: %s
 
-A notice for you: %s''' % (elem[0], elem[1], elem[2], elem[3]))
+Kingdom: %s
+Phylum: %s
+Class: %s
+Order: %s
+Family: %s
+Genus: %s''' % (elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7], elem[8]))
             if messagebox.askyesno(title = 'Copy?', message = 'Copy to clipboard?'):
                 frame.clipboard_clear()
                 frame.clipboard_append('''Scientific name: %s
 Common name: %s
 Danger level: %s
-A notice for you: %s''' % (elem[0], elem[1], elem[2], elem[3]))
+Kingdom: %s
+Phylum: %s
+Class: %s
+Order: %s
+Family: %s
+Genus: %s''' % (elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7], elem[8]))
             frame.update()
             return
     time.sleep(5)
@@ -99,9 +119,9 @@ if __name__ == '__main__':
     isSci = BooleanVar()
     isComm = BooleanVar()
     opt = StringVar()
-    reflab = Label(frame, text = 'Refresh Database (this will take up to 5-6 minutes)')
+    reflab = Label(frame, text = 'Refresh Database (1min)')
     refbtn = Button(frame, text = 'Refresh', command = refcallback)
-    refflab = Label(frame, text = 'Fast refresh from GitHub')
+    refflab = Label(frame, text = 'Fast refresh from GitHub (20s-)')
     reffbtn = Button(frame, text = 'Fast Refresh', command = reffcallback)
     reflab.pack()
     refbtn.pack()

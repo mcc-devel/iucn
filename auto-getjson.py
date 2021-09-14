@@ -1,3 +1,3 @@
-import iucn
+import iucn_getmore
 
-iucn.getjson()
+iucn_getmore.getjson()

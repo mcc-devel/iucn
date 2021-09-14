@@ -63,7 +63,7 @@ def calculate(target, aserr, iscomm, issci, opt):
             wordlst = wordlst + elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
-                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['kingdom'], elem['phylum'], elem['class'], elem['order'], elem['family'], elem['genus']))
             elif flag == True and word.lower() != target.lower():
                 try:
                     if(pos[word.lower()] > 0):
@@ -77,7 +77,7 @@ def calculate(target, aserr, iscomm, issci, opt):
                     tmp = False
                     break
             if tmp == True:
-                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['kingdom'], elem['phylum'], elem['class'], elem['order'], elem['family'], elem['genus']))
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in lci:
@@ -88,7 +88,7 @@ def calculate(target, aserr, iscomm, issci, opt):
             wordlst = wordlst + elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
-                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['kingdom'], elem['phylum'], elem['class'], elem['order'], elem['family'], elem['genus']))
             elif flag == True and word.lower() != target.lower():
                 try:
                     if(pos[word.lower()] > 0):
@@ -102,7 +102,7 @@ def calculate(target, aserr, iscomm, issci, opt):
                     tmp = False
                     break
             if tmp == True:
-                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['kingdom'], elem['phylum'], elem['class'], elem['order'], elem['family'], elem['genus']))
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in nti:
@@ -113,7 +113,7 @@ def calculate(target, aserr, iscomm, issci, opt):
             wordlst = wordlst + elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
-                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['kingdom'], elem['phylum'], elem['class'], elem['order'], elem['family'], elem['genus']))
             elif flag == True and word.lower() != target.lower():
                 try:
                     if(pos[word.lower()] > 0):
@@ -127,7 +127,7 @@ def calculate(target, aserr, iscomm, issci, opt):
                     tmp = False
                     break
             if tmp == True:
-                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['kingdom'], elem['phylum'], elem['class'], elem['order'], elem['family'], elem['genus']))
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in vui:
@@ -138,7 +138,7 @@ def calculate(target, aserr, iscomm, issci, opt):
             wordlst = wordlst + elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
-                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['kingdom'], elem['phylum'], elem['class'], elem['order'], elem['family'], elem['genus']))
             elif flag == True and word.lower() != target.lower():
                 try:
                     if(pos[word.lower()] > 0):
@@ -152,7 +152,7 @@ def calculate(target, aserr, iscomm, issci, opt):
                     tmp = False
                     break
             if tmp == True:
-                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['kingdom'], elem['phylum'], elem['class'], elem['order'], elem['family'], elem['genus']))
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in eni:
@@ -163,7 +163,7 @@ def calculate(target, aserr, iscomm, issci, opt):
             wordlst = wordlst + elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
-                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['kingdom'], elem['phylum'], elem['class'], elem['order'], elem['family'], elem['genus']))
             elif flag == True and word.lower() != target.lower():
                 try:
                     if(pos[word.lower()] > 0):
@@ -177,7 +177,7 @@ def calculate(target, aserr, iscomm, issci, opt):
                     tmp = False
                     break
             if tmp == True:
-                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['kingdom'], elem['phylum'], elem['class'], elem['order'], elem['family'], elem['genus']))
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in cri:
@@ -188,7 +188,7 @@ def calculate(target, aserr, iscomm, issci, opt):
             wordlst = wordlst + elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
-                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['kingdom'], elem['phylum'], elem['class'], elem['order'], elem['family'], elem['genus']))
             elif flag == True and word.lower() != target.lower():
                 try:
                     if(pos[word.lower()] > 0):
@@ -202,7 +202,7 @@ def calculate(target, aserr, iscomm, issci, opt):
                     tmp = False
                     break
             if tmp == True:
-                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['kingdom'], elem['phylum'], elem['class'], elem['order'], elem['family'], elem['genus']))
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in ewi:
@@ -213,7 +213,7 @@ def calculate(target, aserr, iscomm, issci, opt):
             wordlst = wordlst + elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
-                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['kingdom'], elem['phylum'], elem['class'], elem['order'], elem['family'], elem['genus']))
             elif flag == True and word.lower() != target.lower():
                 try:
                     if(pos[word.lower()] > 0):
@@ -227,7 +227,7 @@ def calculate(target, aserr, iscomm, issci, opt):
                     tmp = False
                     break
             if tmp == True:
-                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['kingdom'], elem['phylum'], elem['class'], elem['order'], elem['family'], elem['genus']))
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     for elem in exi:
@@ -238,7 +238,7 @@ def calculate(target, aserr, iscomm, issci, opt):
             wordlst = wordlst + elem['comm'].split(' ')
         for word in wordlst:
             if flag == False and word.lower() == target.lower():
-                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['kingdom'], elem['phylum'], elem['class'], elem['order'], elem['family'], elem['genus']))
             elif flag == True and word.lower() != target.lower():
                 try:
                     if(pos[word.lower()] > 0):
@@ -252,7 +252,7 @@ def calculate(target, aserr, iscomm, issci, opt):
                     tmp = False
                     break
             if tmp == True:
-                ans.append((elem['sci'], elem['comm'], elem['level'], elem['notice']))
+                ans.append((elem['sci'], elem['comm'], elem['level'], elem['kingdom'], elem['phylum'], elem['class'], elem['order'], elem['family'], elem['genus']))
             for i in range(0, len(tgetlst)+1):
                 found[i] = 0
     ans.sort(key = lambda elem:elem[1])

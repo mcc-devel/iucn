@@ -1,5 +1,5 @@
 import json
-import iucn
+import iucn_getmore
 from requests import get
 
 def fastref():
@@ -14,4 +14,4 @@ def fastref():
             json.dump(rs, f)
 
 def slowref():
-    iucn.getjson()
+    iucn_getmore.getjson()
