@@ -20,9 +20,9 @@ def getjson():
             for j in range(8):
                 if elem['category'] == tpshort[j]:
                     if elem['main_common_name'] is not None:
-                        fin[j].append({'sci':elem['scientific_name'], 'comm':elem['main_common_name'], 'level':tplist[j], 'kingdom':elem['kingdom_name'], 'phylum':elem['phylum_name'], 'class':elem['class_name'], 'order':elem['order_name'], 'family':elem['family_name'], 'genus':elem['genus_name']})
+                        fin[j].append({'sci':elem['scientific_name'], 'comm':elem['main_common_name'], 'level':tplist[j], 'level_short':tpshort[j], 'kingdom':elem['kingdom_name'], 'phylum':elem['phylum_name'], 'class':elem['class_name'], 'order':elem['order_name'], 'family':elem['family_name'], 'genus':elem['genus_name']})
                     else:
-                        fin[j].append({'sci':elem['scientific_name'], 'comm':'None', 'level':tplist[j], 'kingdom':elem['kingdom_name'], 'phylum':elem['phylum_name'], 'class':elem['class_name'], 'order':elem['order_name'], 'family':elem['family_name'], 'genus':elem['genus_name']})
+                        fin[j].append({'sci':elem['scientific_name'], 'comm':'None', 'level':tplist[j], 'level_short':tpshort[j], 'kingdom':elem['kingdom_name'], 'phylum':elem['phylum_name'], 'class':elem['class_name'], 'order':elem['order_name'], 'family':elem['family_name'], 'genus':elem['genus_name']})
         print('Completed page %s'%(i+1))
     for i in range(8):
         with open('%s.json'%(tpshort[i].lower()), 'w', encoding = 'utf-8') as f:
