@@ -1,9 +1,9 @@
 import exceptions
 import os
 
-flist = ['dd.json', 'lc.json', 'nt.json', 'vu.json', 'en.json', 'cr.json', 'ew.json', 'ex.json']
+flist:list = ['dd.json', 'lc.json', 'nt.json', 'vu.json', 'en.json', 'cr.json', 'ew.json', 'ex.json']
 
-def doFileExistanceCheck(aserr):
+def doFileExistanceCheck(aserr:bool)->None:
     for elem in flist:
         try:
             f = open(elem, 'x')

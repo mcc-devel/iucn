@@ -2,22 +2,22 @@ import json
 import fcheck
 import parsed
 
-ddi = []
-lci = []
-nti = []
-vui = []
-eni = []
-cri = []
-ewi = []
-exi = []
+ddi:list = []
+lci:list = []
+nti:list = []
+vui:list = []
+eni:list = []
+cri:list = []
+ewi:list = []
+exi:list = []
 
-def finded(a, b):
+def finded(a:tuple, b:list)->bool:
     for elem in b:
         if (elem[0].lower(), elem[1].lower(), elem[2].lower(), elem[3].lower(), elem[4].lower(), elem[5].lower(), elem[6].lower(), elem[7].lower(), elem[8].lower(), elem[9].lower()) == (a[0].lower(), a[1].lower(), a[2].lower(), a[3].lower(), a[4].lower(), a[5].lower(), a[6].lower(), a[7].lower(), a[8].lower(), a[9].lower()):
             return True
     return False
 
-def openf(aserr):
+def openf(aserr:bool)->None:
     fcheck.doFileExistanceCheck(aserr)
     global ddi
     global lci
@@ -44,17 +44,17 @@ def openf(aserr):
     with open('ex.json', 'r') as f:
         exi = json.load(f)
 
-def calculate(aserr, iscomm, issci, opts:parsed.parsed):
-    target = opts.targett
+def calculate(aserr:bool, iscomm:bool, issci:bool, opts:parsed.parsed):
+    target:str = opts.targett
     openf(aserr)
     #stores as (sciname, comname, level, notice)
-    ans = []
-    flag = False
+    ans:list = []
+    flag:bool = False
     if len(target.split(' ')) > 1:
         flag = True
-    tgetlst = []
-    found = []
-    pos = {}
+    tgetlst:list = []
+    found:list = []
+    pos:dict = {}
     if flag == True:
         tgetlst = target.split(' ')
         for i in range(0, len(tgetlst)):

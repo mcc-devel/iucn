@@ -1,5 +1,5 @@
 class parsed:
-    def __init__(this, tpe, kim, phm, cls, orr, fay, ges, tgt):
+    def __init__(this, tpe:str, kim:str, phm:str, cls:str, orr:str, fay:str, ges:str, tgt:str):
         ev = 'Everything'
         if tpe == ev or tpe == ev.lower():
             this.type = ev
@@ -46,11 +46,11 @@ class parsed:
         this.targett = tgt
 
 class oldtype:
-    def __init__(self, ascomm, assci, pars):
+    def __init__(self, ascomm:bool, assci:bool, pars:parsed):
         self.iscomm = ascomm
         self.issci = assci
         self.parst = pars
 
 class searchresult:
-    def __init__(self, res):
+    def __init__(self, res:list):
         self.result = res

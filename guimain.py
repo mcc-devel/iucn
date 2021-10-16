@@ -1,26 +1,24 @@
-from lib2to3.pgen2.token import LEFTSHIFT
+from typing import *
 import exceptions
 from tkinter import *
 from tkinter import messagebox
 import guimatch
-import time
 import refresh
 import parser
 import parsed
 
-warnAsError = False
-lvls = ['Everything', 'DD/Data Deficient', 'LC/Least Concern', 'NT/Near Threatened', 'VU/Vulnerable', 'EN/Endangered', 'CR/Critically Endangered', 'EW/Extinct In The Wild', 'EX/Extinct']
-old = parsed.oldtype(False, False, parser.parse(''))
-results = parsed.searchresult([])
+warnAsError:bool = False
+old:parsed.oldtype = parsed.oldtype(False, False, parser.parse(''))
+results:parsed.searchresult = parsed.searchresult([])
 
-def warnAsErr():
+def warnAsErr()->None:
     global warnAsError
     if messagebox.askyesno(title = 'Warnings as Errors?', message = 'Do you want to treat all warning as errors?'):
         warnAsError = True
         print('All warnings shall be treated as errors now')
 
-def selectcallback(res):
-    res = schlst.index(ACTIVE)
+def selectcallback(res:Any)->None:
+    res:str = schlst.index(ACTIVE)
     if results.result[res][1] != 'None':
         messagebox.showinfo(title = 'Details about %s' % results.result[res][1], message = '''Scientific name: %s
 
@@ -74,8 +72,8 @@ Genus: %s''' % (results.result[res][0], results.result[res][1], results.result[r
         frame.update()
         return
 
-def sciselectcallback(res):
-    res = schscilist.index(ACTIVE)
+def sciselectcallback(res:Any)->None:
+    res:str = schscilist.index(ACTIVE)
     if results.result[res][1] != 'None':
         messagebox.showinfo(title = 'Details about %s' % results.result[res][1], message = '''Scientific name: %s
 
@@ -129,23 +127,24 @@ Genus: %s''' % (results.result[res][0], results.result[res][1], results.result[r
         frame.update()
         return
 
-def refcallback():
+def refcallback()->None:
     refresh.slowref()
     messagebox.showinfo(title = 'Completed!', message = 'Completed refreshing!')
 
-def reffcallback():
+def reffcallback()->None:
     refresh.fastref()
     messagebox.showinfo(title = 'Completed!', message = 'Completed fast refreshing!')
 
-def schcallback():
+def schcallback()->None:
     schlst.delete(0, END)
-    ans = guimatch.calculate(warnAsError, isComm.get(), isSci.get(), parser.parse(schinput.get()))
+    schscilist.delete(0, END)
+    ans:list = guimatch.calculate(warnAsError, isComm.get(), isSci.get(), parser.parse(schinput.get()))
     global old
     old = parsed.oldtype(isComm.get(), isSci.get(), parser.parse(schinput.get()))
     global results
     results = parsed.searchresult(ans)
-    disp = []
-    dispsci = []
+    disp:list = []
+    dispsci:list = []
     for elem in ans:
         if elem[1] != 'None':
             disp.append(elem[1])
@@ -159,14 +158,14 @@ def schcallback():
     schlst.pack(side = LEFT)
     schscilist.pack(side = RIGHT)
 
-def helpcallback():
+def helpcallback()->None:
     messagebox.showinfo(title = 'Help', message = '''Search syntax:
 [opts]animal[opts]
 Option format: 'kind':'settings'
 'kind' should be one of
-type, kingdom, phylum, 
+type, kingdom, phylum,
 class, order, family, genus
-If 'kind' is type, 'settings' should be one of 
+If 'kind' is type, 'settings' should be one of
 DD, LC, NT, VU, EN, CR, EW, EX
 with both lower-case and upper-case versions
 If 'kind' is any other setting, 'settings' should be a valid name.
@@ -174,7 +173,7 @@ If 'kind' is any other setting, 'settings' should be a valid name.
 )
 
 if __name__ == '__main__':
-    frame = Tk()
+    frame:Tk = Tk()
     frame.title('IUCN animal searcher')
     frame.geometry('700x600')
     warnAsErr()
@@ -184,25 +183,25 @@ if __name__ == '__main__':
     isSci = BooleanVar()
     isComm = BooleanVar()
     opt = StringVar()
-    reflab = Label(frame, text = 'Refresh Database (1min)')
-    refbtn = Button(frame, text = 'Refresh', command = refcallback)
-    refflab = Label(frame, text = 'Fast refresh from GitHub (20s-)')
-    reffbtn = Button(frame, text = 'Fast Refresh', command = reffcallback)
+    reflab:Label = Label(frame, text = 'Refresh Database (1min)')
+    refbtn:Button = Button(frame, text = 'Refresh', command = refcallback)
+    refflab:Label = Label(frame, text = 'Fast refresh from GitHub (20s-)')
+    reffbtn:Button = Button(frame, text = 'Fast Refresh', command = reffcallback)
     reflab.pack()
     refbtn.pack()
     refflab.pack()
     reffbtn.pack()
-    schlab = Label(frame, text = 'Search the animal you want')
-    schinput = Entry(frame)
-    options = Frame(frame)
-    schcomm = Checkbutton(options, text = 'Use common names', variable = isComm, offvalue = False, onvalue = True)
-    schsci = Checkbutton(options, text = 'Use scientific names', variable = isSci, offvalue = False, onvalue = True)
-    schbtns = Frame(frame)
-    schbtn = Button(schbtns, text = 'Search', command = schcallback)
-    schhelp = Button(schbtns, text = 'Help on syntax', command = helpcallback)
-    schres = Frame(frame)
-    schlst = Listbox(schres, selectmode = SINGLE, width = 37, height = 20)
-    schscilist = Listbox(schres, selectmode = SINGLE, width = 37, height = 20)
+    schlab:Label = Label(frame, text = 'Search the animal you want')
+    schinput:Entry = Entry(frame)
+    options:Frame = Frame(frame)
+    schcomm:Checkbutton = Checkbutton(options, text = 'Use common names', variable = isComm, offvalue = False, onvalue = True)
+    schsci:Checkbutton = Checkbutton(options, text = 'Use scientific names', variable = isSci, offvalue = False, onvalue = True)
+    schbtns:Frame = Frame(frame)
+    schbtn:Button = Button(schbtns, text = 'Search', command = schcallback)
+    schhelp:Button = Button(schbtns, text = 'Help on syntax', command = helpcallback)
+    schres:Frame = Frame(frame)
+    schlst:Listbox = Listbox(schres, selectmode = SINGLE, width = 37, height = 20)
+    schscilist:Listbox = Listbox(schres, selectmode = SINGLE, width = 37, height = 20)
     schlst.bind('<Double-Button-1>', selectcallback)
     schscilist.bind('<Double-Button-1>', sciselectcallback)
     schlab.pack()

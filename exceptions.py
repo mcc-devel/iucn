@@ -24,13 +24,13 @@ class deprecatedMethodWarning(PendingDeprecationWarning):
         return 'Method %s will be deprecated soon, use %s instead.' % (self.oldn, self.newn)
 
 class multipleOptionsError(RuntimeError):
-    def __init__(self, opt):
+    def __init__(self, opt:str)->None:
         self.opt = opt
-    def __str__(self):
+    def __str__(self)->str:
         return 'You specified the same option \'%s\' multiple times!'%(self.opt)
 
 class wrongOptionError(RuntimeError):
-    def __init__(self):
+    def __init__(self)->None:
         pass
-    def __str__(self):
+    def __str__(self)->str:
         return 'Wrong option format, check menuals.'
